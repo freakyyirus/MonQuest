@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FAFAF9;
+    --foreground: #0F172A;
+  }
+
+  body {
+    @apply bg-brand-paper text-primary antialiased selection:bg-accent/20;
+    background-image: url("https://www.transparenttextures.com/patterns/p6.png");
+    /* Subtle paper-like grain */
+    background-blend-mode: multiply;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-primary px-6 py-2.5 text-xs font-semibold tracking-tight text-white transition-all duration-200 shadow-sm active:translate-y-px;
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary-light;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-brand-border bg-white px-6 py-2.5 text-xs font-semibold tracking-tight text-primary transition-all duration-200 active:translate-y-px;
+  }
+
+  .btn-secondary:hover {
+    @apply border-brand-border bg-secondary;
+  }
+
+  .card {
+    @apply rounded-sm border border-brand-border bg-white p-6 shadow-sm;
+  }
+
+  .card-hover {
+    @apply rounded-sm border border-brand-border bg-white p-6 transition-all duration-200 shadow-sm;
+  }
+
+  .card-hover:hover {
+    @apply border-brand-border/80 shadow-md -translate-y-0.5;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9CA3AF;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 
+ * Razorpay-style animated checkmark 
+ */
+.animate-tick-circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 2;
+  stroke-miterlimit: 10;
+  stroke: #4caf50;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.animate-tick-check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 48;
+  stroke-dashoffset: 48;
+  animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
